@@ -1,0 +1,58 @@
+﻿@model UserData
+
+@{
+    ViewData["Title"] = "Read User Page";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        @if (Model == null)
+        {
+            <form asp-controller="Home" asp-action="ReadUser" method="post" enctype="multipart/form-data" class="row g-3">
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="formFile">Upload</label>
+                    <input type="file" name="formFile" id="formFile" class="form-control">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Read User</button>
+                </div>
+            </form>    
+        }
+        else
+        {
+            <div class="col-md-6">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" type="email" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" />
+            </div>
+            <div class="col-12">
+                <label asp-for="Adress" class="form-label"></label>
+                <input asp-for="Adress" type="text" class="form-control" placeholder="1234 Main St" />
+            </div>
+            <div class="col-12">
+                <label asp-for="Adress2" class="form-label"></label>
+                <input asp-for="Adress2" class="form-control" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="col-md-6">
+                <label asp-for="City" class="form-label"></label>
+                <input asp-for="City" class="form-control" id="inputCity">
+            </div>
+            <div class="col-md-4">
+                <label asp-for="State" class="form-label"></label>
+                <select asp-for="State" class="form-select">
+                    <option selected>Choose...</option>
+                    <option>Ataşehir</option>
+                    <option>Bakırköy</option>
+                    <option>Bağcılar</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label asp-for="Zip" class="form-label" ></label>
+                <input asp-for="Zip" class="form-control" />
+            </div>
+        }
+    </div>
+</div>
